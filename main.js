@@ -85,10 +85,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _export_toolbar_export_toolbar_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./export-toolbar/export-toolbar.component */ "./src/app/export-toolbar/export-toolbar.component.ts");
-/* harmony import */ var _default_default_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./default/default.component */ "./src/app/default/default.component.ts");
-/* harmony import */ var _export_toolbar_configure_dialog_configure_dialog_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./export-toolbar/configure-dialog/configure-dialog.component */ "./src/app/export-toolbar/configure-dialog/configure-dialog.component.ts");
-/* harmony import */ var _datacarousel_datacarousel_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./datacarousel/datacarousel.component */ "./src/app/datacarousel/datacarousel.component.ts");
-/* harmony import */ var _datacarousel_config_dialog_config_dialog_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./datacarousel/config-dialog/config-dialog.component */ "./src/app/datacarousel/config-dialog/config-dialog.component.ts");
+/* harmony import */ var _export_toolbar_configure_dialog_configure_dialog_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./export-toolbar/configure-dialog/configure-dialog.component */ "./src/app/export-toolbar/configure-dialog/configure-dialog.component.ts");
+/* harmony import */ var _datacarousel_datacarousel_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./datacarousel/datacarousel.component */ "./src/app/datacarousel/datacarousel.component.ts");
+/* harmony import */ var _datacarousel_config_dialog_config_dialog_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./datacarousel/config-dialog/config-dialog.component */ "./src/app/datacarousel/config-dialog/config-dialog.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -101,13 +100,12 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
-
 var routes = [
-    { path: '', component: _default_default_component__WEBPACK_IMPORTED_MODULE_3__["DefaultComponent"] },
+    { path: '', component: _datacarousel_datacarousel_component__WEBPACK_IMPORTED_MODULE_4__["DatacarouselComponent"] },
     { path: 'exporttb', component: _export_toolbar_export_toolbar_component__WEBPACK_IMPORTED_MODULE_2__["ExportToolbarComponent"] },
-    { path: 'exporttb/config', component: _export_toolbar_configure_dialog_configure_dialog_component__WEBPACK_IMPORTED_MODULE_4__["ConfigureDialogComponent"] },
-    { path: 'datacarousel', component: _datacarousel_datacarousel_component__WEBPACK_IMPORTED_MODULE_5__["DatacarouselComponent"] },
-    { path: 'datacarousel/config', component: _datacarousel_config_dialog_config_dialog_component__WEBPACK_IMPORTED_MODULE_6__["ConfigDialogComponent"] }
+    { path: 'exporttb/config', component: _export_toolbar_configure_dialog_configure_dialog_component__WEBPACK_IMPORTED_MODULE_3__["ConfigureDialogComponent"] },
+    //{ path: 'datacarousel', component:DatacarouselComponent},
+    { path: 'datacarousel/config', component: _datacarousel_config_dialog_config_dialog_component__WEBPACK_IMPORTED_MODULE_5__["ConfigDialogComponent"] }
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
