@@ -265,7 +265,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = ".logo{\n  width: 30px;\n  padding-right: 5px;\n}\n.mat-accordion{\n  width: 100%;\n}\n.mat-expansion-panel-header{\n  color: #1e8dd6;\n  font-weight: bolder;\n  font-size: 15px;\n}\n.cfg-header{\n  color: #1e8dd6;\n  font-size: 25px;\n  border-bottom: #1e8dd6 4px solid;\n  padding: 10px 0px 5px 0px;\n}\n.cfg-sub-header{\n  color: #1e8dd6;\n  font-size: 12px;\n  font-weight: bold;\n  border-bottom: #1e8dd6 1px solid;\n  padding: 10px 0px 5px 0px;\n  margin-bottom: 5px;\n}\n.cfg-button{\n  width: 50px;\n  background-color:#1e8dd6;\n  color: white;\n  border-style: none;\n  font-size: 12px;\n}\n.cfg-table-header {\n  background-color: rgb(9, 43, 9);\n  color:white;\n  font-weight: bold;\n  height: 25px;\n}\n#col-list > .row {\n  border-bottom: 1px solid rgb(206, 206, 211);\n}"
 
 /***/ }),
 
@@ -276,7 +276,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  config-dialog works!\n</p>\n"
+module.exports = "<div class=\"container-fluid\" id=\"cfCont\">\n  <div class=\"row cfg-header\">\n    <div class=\"col-sm-8\">\n      <img class=\"logo\" src=\"../../../assets/images/carousel-50.png\" alt=\"\"><span>Data Carousel Settings</span>\n    </div>\n    <div class=\"col-sm-1\"> <button color=\"primary\" class=\"cfg-button\" (click)='saveSettings()'>Save</button></div>\n    <div class=\"col-sm-1\"> <button color=\"warn\" class=\"cfg-button\" (click)='closeDialog()'>Close</button></div>\n  </div>\n  <mat-accordion>\n    <mat-expansion-panel>\n      <mat-expansion-panel-header>\n        Workseet and Column\n      </mat-expansion-panel-header>\n      <div class=\"row\" style=\"padding-top: 10px;\">\n        <div class=\"col-lg-12\">\n          <div class=\"table\">\n            <div class=\"row\">\n              <div class=\"col-sm-3\">\n                <h5>Worksheets</h5>\n              </div>\n              <div class=\"col-sm-9\">\n                <select name=\"worksheet\" id=\"worksheet\" [(ngModel)]=\"selectedWorksheet\"\n                  (change)=\"worksheetDataSourceChange()\" class=\"form-control\">\n                  <option *ngFor=\"let ws of worksheets\" [ngValue]=\"ws\">{{ws}}</option>\n                </select>\n              </div>\n            </div>\n            <div class=\"row\">\n              <div class=\"col-lg-12\">\n                <div class='table' id=\"col-list\">\n                  <div class=\"row cfg-table-header\">\n                    <div class=\"col-sm-1\">Select</div>\n                    <div class=\"col-sm-4\">Field Name</div>\n                    <div class=\"col-sm-6\">Title</div>\n                    <div class=\"col-sm-1\">Seq.</div>\n                  </div>\n                  <div class=\"row\" *ngFor=\"let column of columns\">\n                    <div class=\"col-sm-1\"><input type=\"checkbox\" [checked]=\"column.selected\"\n                        (change)=\"column.selected = !column.selected\" /></div>\n                    <div class=\"col-sm-4\">{{column.name}}</div>\n                    <div class=\"col-sm-6\"><input size=\"45\"\n                        style=\"border:  1px solid gray;background-color: rgb(170, 245, 241);\" type=\"text\"\n                        [(ngModel)]='column.caption'></div>\n                    <div class=\"col-sm-1\"><input type=\"number\"\n                        style=\"border:  1px solid gray;background-color: rgb(170, 245, 241);\" [(ngModel)]='column.seq'\n                        min=\"0\" max=\"{{columns.length-1}}\" step=\"1\">\n                    </div>\n                  </div>\n                </div>\n              </div>\n            </div>\n          </div>\n        </div>\n      </div>\n    </mat-expansion-panel>\n    <mat-expansion-panel>\n      <mat-expansion-panel-header>\n        Tiles\n      </mat-expansion-panel-header>\n      <div class=\"row\">\n        <div class=\"col-sm-3\">Background Color</div>\n        <div class=\"col-sm-3\"><input [(ngModel)]='tiles.background'\n            style=\"border: 1px solid gray; background-color:beige;width: 10ch;\" /></div>\n      </div>\n      <div class=\"row\">\n        <div class=\"col-sm-3\">Title Color</div>\n        <div class=\"col-sm-3\"><input [(ngModel)]='tiles.titleColor'\n            style=\"border:  1px solid gray; background-color:beige;width: 10ch;\" /></div>\n      </div>\n      <div class=\"row\">\n        <div class=\"col-sm-3\">Content Color</div>\n        <div class=\"col-sm-3\"><input [(ngModel)]='tiles.valueColor'\n            style=\"border:  1px solid gray; background-color:beige;width: 10ch;\" /></div>\n      </div>\n      <div class=\"divTile\" style=\"flex: 0 0 48%; margin: 5px;\" [style.backgroundColor]=\"tiles.background\">\n        <div class=\"title\" [style.color]=\"tiles.titleColor\">\n          Title\n        </div>\n        <p class=\"content\"><span [style.color]=\"tiles.valueColor\">Content</span></p>\n      </div>\n    </mat-expansion-panel>\n    <mat-expansion-panel>\n      <mat-expansion-panel-header>\n        Page\n      </mat-expansion-panel-header>\n      <div class=\"row\">\n        <div class=\"col-sm-3\">Background Color</div>\n        <div class=\"col-sm-3\"><input [(ngModel)]='page.backgroundcolor'\n            style=\"border:  1px solid gray; background-color:beige\" /></div>\n        <div class=\"col-sm-3\">Background Image</div>\n        <div class=\"col-sm-3\"><select [(ngModel)]='page.backgroundimage'\n            style=\"border:  1px solid gray; background-color:beige\">\n            <option *ngFor=\"let i of bgimages\" [ngValue]=\"i.filename\">{{i.name}}</option>\n          </select>\n        </div>\n      </div>\n      <div class=\"row\">\n        <div class=\"col-sm-12\" style=\"font-weight: bold;\">Header</div>\n      </div>\n      <div class=\"row\">\n        <div class=\"col-sm-3\">Text</div>\n        <div class=\"col-sm-8\"><input [(ngModel)]='page.header.text' style=\" border: 1px solid gray;\n            background-color:beige; width: 61ch;\" />\n        </div>\n      </div>\n      <div class=\"row\">\n        <div class=\"col-sm-3\">Background Color</div>\n        <div class=\"col-sm-3\"><input [(ngModel)]='page.header.background'\n            style=\"border:  1px solid gray; background-color:beige\" />\n        </div>\n        <div class=\"col-sm-3\">Fore Color</div>\n        <div class=\"col-sm-3\"><input [(ngModel)]='page.header.color'\n            style=\"border:  1px solid gray; background-color:beige\" />\n        </div>\n      </div>\n      <div class=\"row\">\n        <div class=\"col-sm-12\" style=\"font-weight: bold;\">Footer</div>\n      </div>\n      <div class=\"row\">\n        <div class=\"col-sm-3\">Text</div>\n        <div class=\"col-sm-8\"><input [(ngModel)]='page.footer.text' style=\"border:  1px solid gray; \n            background-color:beige; \n            width: 61ch;\" /></div>\n      </div>\n      <div class=\"row\">\n        <div class=\"col-sm-3\">Background Color</div>\n        <div class=\"col-sm-3\"><input [(ngModel)]='page.footer.background'\n            style=\"border:  1px solid gray; background-color:beige\" />\n        </div>\n        <div class=\"col-sm-3\">Fore Color</div>\n        <div class=\"col-sm-3\"><input [(ngModel)]='page.footer.color'\n            style=\"border:  1px solid gray; background-color:beige\" />\n        </div>\n      </div>\n    </mat-expansion-panel>\n  </mat-accordion>\n</div>"
 
 /***/ }),
 
@@ -291,6 +291,8 @@ module.exports = "<p>\n  config-dialog works!\n</p>\n"
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ConfigDialogComponent", function() { return ConfigDialogComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var src_app_model_ColumnsModel__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/app/model/ColumnsModel */ "./src/app/model/ColumnsModel.ts");
+/* harmony import */ var _tab_ext_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../tab-ext.service */ "./src/app/tab-ext.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -301,10 +303,101 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
 var ConfigDialogComponent = /** @class */ (function () {
-    function ConfigDialogComponent() {
+    function ConfigDialogComponent(_tabservice, cd) {
+        this._tabservice = _tabservice;
+        this.cd = cd;
+        this.worksheets = [];
+        this.selectedWorksheet = "";
+        this.columns = [];
+        this.tiles = { titleColor: 'white', background: 'dodgerblue', valueColor: 'black' };
+        this.page = {
+            header: { text: '', background: '', color: '' },
+            backgroundcolor: 'white',
+            backgroundimage: '',
+            footer: { text: '', background: '', color: '' }
+        };
+        this.bgimages = [];
+        this.closeDialog = function () {
+            tableau.extensions.ui.closeDialog();
+        };
+        this.loadColumns = function (cols) {
+            var _this = this;
+            var i = 0;
+            cols.forEach(function (v) {
+                var cm = new src_app_model_ColumnsModel__WEBPACK_IMPORTED_MODULE_1__["ColumnsModel"]();
+                cm.caption = v.fieldName;
+                cm.name = v.fieldName;
+                cm.colIndex = i++;
+                cm.seq = cm.colIndex;
+                cm.size = 0.1;
+                cm.dataType = v.dataType;
+                _this.columns.push(cm);
+            });
+        };
+        this.worksheetDataSourceChange = function () {
+            var _this = this;
+            _this.columns = [];
+            var worksheets = tableau.extensions.dashboardContent.dashboard.worksheets;
+            worksheets.find(function (sheet) {
+                if (sheet.name === _this.selectedWorksheet) {
+                    sheet.getSummaryDataAsync({ maxRows: 1 }).then(function (sumdata) {
+                        _this.loadColumns(sumdata.columns);
+                    });
+                }
+            });
+        };
+        this.buildDialog = function () {
+            var _this = this;
+            var dashboard = tableau.extensions.dashboardContent.dashboard;
+            _this.worksheets = [];
+            dashboard.worksheets.forEach(function (worksheet) {
+                _this.worksheets.push(worksheet.name);
+            });
+            this.worksheetDataSourceChange();
+        };
+        this.saveSettings = function () {
+            var columnList = this.columns.filter(function (d) { return d.selected; });
+            tableau.extensions.settings.set('selectedWorksheet', this.selectedWorksheet);
+            tableau.extensions.settings.set('columns', JSON.stringify(columnList));
+            tableau.extensions.settings.set('tiles', JSON.stringify(this.tiles));
+            tableau.extensions.settings.set('page', JSON.stringify(this.page));
+            tableau.extensions.settings.saveAsync().then(function (currentSettings) {
+                tableau.extensions.ui.closeDialog();
+            });
+        };
     }
     ConfigDialogComponent.prototype.ngOnInit = function () {
+        var _this_1 = this;
+        this._tabservice.getJSON('../../../assets/data/bg.json').subscribe(function (imgs) { return _this_1.bgimages = imgs; });
+    };
+    ConfigDialogComponent.prototype.loadSettings = function () {
+        this.selectedWorksheet = tableau.extensions.settings.get('selectedWorksheet');
+        var tmpDb = tableau.extensions.settings.get('columns');
+        if (tmpDb) {
+            this.columns = JSON.parse(tmpDb);
+        }
+        tmpDb = tableau.extensions.settings.get('tiles');
+        if (tmpDb) {
+            this.tiles = JSON.parse(tmpDb);
+        }
+        tmpDb = tableau.extensions.settings.get('page');
+        if (tmpDb) {
+            this.page = JSON.parse(tmpDb);
+        }
+    };
+    ConfigDialogComponent.prototype.ngAfterViewInit = function () {
+        var _this = this;
+        tableau.extensions.initializeDialogAsync().then(function (openPayload) {
+            /* let dcSettings : any = tableau.extensions.settings.get('dc_settings');
+            if (dcSettings) {
+              _this.cd.detectChanges();
+            } */
+            _this.loadSettings();
+            _this.buildDialog();
+        });
     };
     ConfigDialogComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -312,7 +405,7 @@ var ConfigDialogComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./config-dialog.component.html */ "./src/app/datacarousel/config-dialog/config-dialog.component.html"),
             styles: [__webpack_require__(/*! ./config-dialog.component.css */ "./src/app/datacarousel/config-dialog/config-dialog.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_tab_ext_service__WEBPACK_IMPORTED_MODULE_2__["TabExtService"], _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectorRef"]])
     ], ConfigDialogComponent);
     return ConfigDialogComponent;
 }());
@@ -328,7 +421,7 @@ var ConfigDialogComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".c-control {\n    bottom: -30px;\n    text-align: center;\n    padding: 5px;\n}\n\n.control-but {\n    background-image: none;\n    color: rgb(3, 77, 126);\n    margin: 10px;\n}\n\n.carousel-indicators li {\n    display: inline-block;\n    width: 10px;\n    height: 10px;\n    margin: 10px;\n    text-indent: 0;\n    cursor: pointer;\n    border: none;\n    border-radius: 50%;\n    background-color: #757588;\n    box-shadow: inset 1px 1px 1px 1px rgba(0, 0, 0, 0.5);\n}\n\n.carousel-indicators .active {\n    background-color: #0bd415;\n}\n\n.carousel-indicators li:hover {\n    background-color: #d1550d;\n}\n\n.carousel-indicators ol {\n    width: 100%;\n    overflow: hidden;\n    overflow-x: auto;\n}\n\n.carousel-indicators {\n    position: fixed;\n    bottom: 0;\n    background-color: rgba(50, 115, 220, 0.3);\n}\n\n.divTile {\n    height: 90px;\n    min-width: 40%;\n    background-color: dodgerblue;\n    margin: .2em!important;\n    padding: .2em;\n    border-radius: 10px;\n}\n\n.divTile .title {\n    font-size: medium;\n    font-weight: bolder;\n    color: white;\n    padding: 2px;\n}\n\n.divTile .content {\n    font-size: medium;\n    padding: 2px;\n    word-break: break-all!important;\n    max-height: 50px;\n    overflow: auto;\n}"
+module.exports = ".c-control {\n    bottom: -30px;\n    text-align: center;\n    padding: 5px;\n}\n\n.control-but {\n    background-image: none;\n    color: rgb(3, 77, 126);\n    margin: 10px;\n}\n\n.carousel-indicators li {\n    display: inline-block;\n    width: 10px;\n    height: 10px;\n    margin: 10px;\n    text-indent: 0;\n    cursor: pointer;\n    border: none;\n    border-radius: 50%;\n    background-color: #757588;\n    box-shadow: inset 1px 1px 1px 1px rgba(0, 0, 0, 0.5);\n}\n\n.carousel-indicators .active {\n    background-color: #0bd415;\n}\n\n.carousel-indicators li:hover {\n    background-color: #d1550d;\n}\n\n.carousel-indicators ol {\n    width: 100%;\n    overflow: hidden;\n    overflow-x: auto;\n}\n\n.carousel-indicators {\n    position: fixed;\n    bottom: 0;\n    background-color: rgba(50, 115, 220, 0.3);\n}\n\n.divTile {\n    height: 90px;\n    min-width: 40%;\n    background-color: dodgerblue;\n    margin: .2em!important;\n    padding: .2em;\n    border-radius: 10px;\n}\n\n.divTile .title {\n    font-size: medium;\n    font-weight: bolder;\n    color: white;\n    padding: 2px;\n}\n\n.divTile .content {\n    font-size: medium;\n    padding: 2px;\n    word-break: break-all!important;\n    max-height: 50px;\n    overflow: auto;\n}\n\n.page-number {\n    width:100%;\n    text-align: center;\n    padding-top: 10px;\n    font-weight: bold;\n}\n\n.header {\n    width: 100%;\n    text-align: center;\n    font-weight: bold;\n    min-height: 25px;\n    vertical-align: middle;\n}\n\n.footer {\n    position: fixed;\n    left: 0;\n    bottom: 0;\n    width: 100%;\n    text-align: center;\n  }"
 
 /***/ }),
 
@@ -339,7 +432,7 @@ module.exports = ".c-control {\n    bottom: -30px;\n    text-align: center;\n   
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"data.length > 1\" class=\"c-control\">\n  <a href=\"#datacar\" role=\"button\" data-slide=\"prev\" class=\"control-but\">\n    <i style=\"font-size: 20px\" class=\"fas fa-arrow-alt-circle-left\"></i>\n    <span class=\"sr-only\">Previous</span>\n  </a>\n  <a href=\"#datacar\" role=\"button\" data-slide=\"next\" class=\"control-but\">\n    <i style=\"font-size: 20px\" class=\"fas fa-arrow-alt-circle-right\"></i>\n    <span class=\"sr-only\">Next</span>\n  </a>\n</div>\n<div id=\"datacar\" name=\"datacar\" class=\"carousel slide\" data-ride=\"carousel\" data-interval=\"false\" style=\"width: 100%;\">\n  <div class=\"carousel-inner\">\n    <div *ngFor=\"let d of data; let i = index\" class=\"carousel-item {{ (i == 0) ? 'active' : '' }}\">\n      <div style=\"display:flex; flex-wrap:wrap;\">\n        <div class=\"divTile\" *ngFor=\"let c of columns\" style=\"flex: 0 0 48%;\">\n          <div class=\"title\">\n            {{c.fieldName}}\n          </div>\n          <p class=\"content\"><span *ngIf=\"d[c.index].value!='%null%'\">{{d[c.index].value}}</span></p>\n        </div>\n      </div>\n    </div>\n  </div>\n  <!-- <ol class=\"carousel-indicators\" *ngIf=\"data.length < 7\">\n    <li data-target=\"#datacar\" *ngFor=\"let d of data; index as i\" [attr.data-slide-to]='i'\n      [ngClass]=\"{'active' : i == 0}\"></li>\n  </ol>\n  -->\n</div>"
+module.exports = "<div [ngStyle]=\"getPageStyle()\">\n  <div class=\"header\" [style.backgroundColor]=\"page.header.background\" [style.color]=\"page.header.color\">\n    {{page.header.text}}</div>\n  <div *ngIf=\"data.length > 1\" class=\"c-control\">\n    <a href=\"#datacar\" role=\"button\" data-slide=\"prev\" class=\"control-but\">\n      <i style=\"font-size: 20px\" class=\"fas fa-arrow-alt-circle-left\"></i>\n      <span class=\"sr-only\">Previous</span>\n    </a>\n    <span>{{i}}</span>\n    <a href=\"#datacar\" role=\"button\" data-slide=\"next\" class=\"control-but\">\n      <i style=\"font-size: 20px\" class=\"fas fa-arrow-alt-circle-right\"></i>\n      <span class=\"sr-only\">Next</span>\n    </a>\n  </div>\n  <div id=\"datacar\" name=\"datacar\" class=\"carousel slide\" data-ride=\"carousel\" data-interval=\"false\"\n    style=\"width: 100%;\">\n    <div class=\"carousel-inner\">\n      <div *ngFor=\"let d of data; let i = index\" class=\"carousel-item {{ (i == 0) ? 'active' : '' }}\">\n        <div style=\"display:flex; flex-wrap:wrap;\">\n          <div class=\"divTile\" *ngFor=\"let c of columns | orderBy:['seq']\" style=\"flex: 0 0 48%;\"\n            [style.backgroundColor]=\"tiles.background\">\n            <div class=\"title\" [style.color]=\"tiles.titleColor\">\n              {{c.caption}}\n            </div>\n            <p class=\"content\"><span *ngIf=\"d[c.colIndex].value!='%null%'\"\n                [style.color]=\"tiles.valueColor\">{{d[c.colIndex].value}}</span></p>\n          </div>\n        </div>\n        <div class=\"page-number\">{{i+1}} / {{data.length}}</div>\n      </div>\n    </div>\n    <!-- <ol class=\"carousel-indicators\" *ngIf=\"data.length < 7\">\n    <li data-target=\"#datacar\" *ngFor=\"let d of data; index as i\" [attr.data-slide-to]='i'\n      [ngClass]=\"{'active' : i == 0}\"></li>\n  </ol>\n  -->\n  </div>\n  <div class=\"footer\" [style.backgroundColor]=\"page.footer.background\" [style.color]=\"page.footer.color\">\n    {{page.footer.text}}</div>\n</div>"
 
 /***/ }),
 
@@ -369,30 +462,78 @@ var DatacarouselComponent = /** @class */ (function () {
         this.elRef = elRef;
         this.changeDetectorRef = changeDetectorRef;
         this.unregisterHandlerFunctions = [];
+        this.unregisterSettingsEventListener = null;
         this.data = [];
         this.columns = [];
+        this.tiles = { titleColor: 'white', background: 'dodgerblue', valueColor: 'black', footer: '' };
+        this.page = {
+            header: { text: '', background: '', color: '' },
+            backgroundcolor: 'white',
+            backgroundimage: '',
+            footer: { text: '', background: '', color: '' }
+        };
         this.filterChangedHandler = function (e) {
             this.loadData();
         };
         this.loadData = function () {
-            var _this_1 = this;
             var _this = this;
-            var dashboard = tableau.extensions.dashboardContent.dashboard;
-            var sheet = dashboard.worksheets[0];
-            sheet.getSummaryDataAsync().then(function (dt) {
-                _this.data = dt.data;
-                _this.columns = dt.columns;
-                _this_1.changeDetectorRef.detectChanges();
+            var worksheets = tableau.extensions.dashboardContent.dashboard.worksheets;
+            var selectedWorksheet = tableau.extensions.settings.get('selectedWorksheet');
+            var tmpDb = tableau.extensions.settings.get('columns');
+            if (tmpDb) {
+                var cs = JSON.parse(tmpDb);
+                _this.columns = cs;
+            }
+            tmpDb = tableau.extensions.settings.get('tiles');
+            if (tmpDb) {
+                _this.tiles = JSON.parse(tmpDb);
+            }
+            tmpDb = tableau.extensions.settings.get('page');
+            if (tmpDb) {
+                _this.page = JSON.parse(tmpDb);
+            }
+            worksheets.find(function (sheet) {
+                if (sheet.name === selectedWorksheet) {
+                    sheet.getSummaryDataAsync().then(function (dt) {
+                        _this.data = dt.data;
+                        _this.changeDetectorRef.detectChanges();
+                    });
+                }
+            });
+        };
+        this.configure = function (_s) {
+            var _this = this;
+            var popupUrl = window.location.origin + "/datacarousel/config";
+            var input = '';
+            tableau.extensions.ui.displayDialogAsync(popupUrl, input, { height: 500, width: 700 }).bind(_this).then(function (_closePayload) {
+                _this.loadData();
+            }).catch(function (error) {
+                switch (error.errorCode) {
+                    case tableau.ErrorCodes.DialogClosedByUser:
+                        console.log('Dialog was closed by user');
+                        break;
+                    default:
+                        console.error(error.message);
+                }
             });
         };
     }
+    DatacarouselComponent.prototype.getPageStyle = function () {
+        return {
+            'height': '100vh', 'backgroundImage': 'url(../../../assets/images/' + this.page.backgroundimage + ')',
+            'backgroundSize': 'cover', 'backgroundRepeat': 'no-repeat', 'backgroundColor': this.page.backgroundcolor
+        };
+    };
     DatacarouselComponent.prototype.ngOnInit = function () {
     };
     DatacarouselComponent.prototype.ngAfterViewInit = function () {
         var _this = this;
-        tableau.extensions.initializeAsync().then(function () {
+        tableau.extensions.initializeAsync({ 'configure': this.configure }).then(function () {
             _this.unregisterHandlerFunctions.forEach(function (unregisterHandlerFunction) {
                 unregisterHandlerFunction();
+            });
+            _this.unregisterSettingsEventListener = tableau.extensions.settings.addEventListener(tableau.TableauEventType.SettingsChanged, function (_settingsEvent) {
+                _this.loadData();
             });
             var dashboard = tableau.extensions.dashboardContent.dashboard;
             dashboard.worksheets.forEach(function (worksheet) {
